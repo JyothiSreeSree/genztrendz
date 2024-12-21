@@ -10,7 +10,7 @@ const cors = require("cors");
 const app = express();
 
 app.use(express.json());
-
+const PORT = process.env.PORT || 3000;
 app.use(
   cors({
     origin: "*",
@@ -28,7 +28,7 @@ const initializeDBAndServer = async () => {
       filename: dbPath,
       driver: sqlite3.Database,
     });
-    app.listen(3000, () => {
+    app.listen(port, () => {
       console.log("Server is running on port 3000...");
     });
   } catch (e) {
