@@ -5,9 +5,12 @@
     "main": "server.js",
     "proxy": "http://localhost:3000",
     "scripts": {
-      "start": "nodemon genzbackend/server.js",  
-      "dev": "node genzbackend/server.js" 
-      
+      "start": "node genzbackend/server.js",  
+      "dev": "node genzbackend/server.js", 
+      "client": "npm run start --prefix genzcommerce", 
+      "heroku-postbuild": "npm run build --prefix genzcommerce",  
+      "install-client": "npm install --prefix genzcommerce", 
+      "install-backend": "npm install --prefix genzbackend"  
     },
     "dependencies": {
       "bcrypt": "^5.1.1",
@@ -40,8 +43,8 @@
       "prettier": "^3.4.2"
     },
     "engines": {
-      "node": ">=14.x"  
-    },
+    "node": "20.18.0"
+},
     "eslintConfig": {
       "extends": [
         "react-app",
