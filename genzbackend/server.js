@@ -12,12 +12,11 @@ const app = express();
 
 app.use(express.json());
 
-// Serve static files from the React build folder
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, '..','genzcommerce', 'build')));
 
-// All other routes should serve the React app
+// For all other routes, send the React app's index.html file
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, '..','genzcommerce', 'build', 'index.html'));
 });
 
 const PORT = process.env.PORT || 3000;
@@ -38,7 +37,7 @@ const initializeDBAndServer = async () => {
       filename: dbPath,
       driver: sqlite3.Database,
     });
-    app.listen(port, () => {
+    app.listen(PORT, () => {
       console.log("Server is running on port 3000...");
     });
   } catch (e) {
