@@ -9,7 +9,17 @@ const cors = require("cors");
 
 const app = express();
 
+
 app.use(express.json());
+
+// Serve static files from the React build folder
+app.use(express.static(path.join(__dirname, 'build')));
+
+// All other routes should serve the React app
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
 const PORT = process.env.PORT || 3000;
 app.use(
   cors({
