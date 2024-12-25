@@ -1,0 +1,115 @@
+.payments-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .payments-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  
+  .payments-sub-heading {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  
+  .payment-method-inputs {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 16px;
+  }
+  
+  .payment-method-input-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    justify-content: space-between;
+  }
+  
+  .payment-method-input {
+    margin-right: 8px;
+  }
+  
+  .payment-method-label {
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .disabled-label {
+    color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .order-details {
+    margin-bottom: 16px;
+  }
+  
+  .confirm-order-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .confirm-order-button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+  }
+  
+  .confirm-order-button:hover:not(:disabled) {
+    background-color: #45a049;
+  }
+  
+  .success-message {
+    font-size: 18px;
+    color: #4caf50;
+    text-align: center;
+  }
+  .payment-method-image {
+    width: 40px;
+    height: 40px;
+  }
+  @media (max-width: 768px) {
+    .payments-container {
+      padding: 16px;
+    }
+  
+    .payments-heading {
+      font-size: 20px;
+    }
+  
+    .payments-sub-heading {
+      font-size: 16px;
+    }
+  
+    .confirm-order-button {
+      font-size: 16px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .payments-container {
+      padding: 12px;
+    }
+  
+    .payments-heading {
+      font-size: 18px;
+    }
+  
+    .confirm-order-button {
+      font-size: 14px;
+    }
+  }
