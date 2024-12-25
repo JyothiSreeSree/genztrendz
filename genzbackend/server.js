@@ -12,13 +12,6 @@ const app = express();
 
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname, '..','genzcommerce', 'build')));
-
-// For all other routes, send the React app's index.html file
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '..','genzcommerce', 'build', 'index.html'));
-});
-
 const PORT = process.env.PORT || 3000;
 app.use(
   cors({
@@ -141,5 +134,18 @@ app.get("/api/products", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch products" });
   }
 });
+
+app.get("/test-fetch", async (req, res) => {
+  try {
+    const response = await fetch("https://dummyjson.com/products");
+    const data = await response.json();
+    console.log(data)
+    res.status(200).json(data);
+  } catch (error) {
+    console.error("Fetch error:", error.message);
+    res.status(500).json({ error: "Fetch failed" });
+  }
+});
+
 
 initializeDBAndServer().then(createUserDetailsTable);
